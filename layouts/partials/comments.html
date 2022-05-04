@@ -1,3 +1,34 @@
 {{- /* Comments area start */ -}}
 {{- /* to add comments read => https://gohugo.io/content-management/comments/ */ -}}
 {{- /* Comments area end */ -}}
+
+{{- /* Valine Comment System */ -}}
+{{- $valine := (.Params.comment.valine | default dict) -}}
+{{- if $valine.enable -}}
+<!-- id 将作为查询条件 -->
+<span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}">
+    <span class="post-meta-item-text">文章阅读量 </span>
+    <span class="leancloud-visitors-count">1000000</span>
+    <p></p>
+</span>
+<div id="valine" class="comment"></div>
+<!--Leancloud 操作库-->
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<!--Valine 的核心代码库-->
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#valine',
+        appId: '{{ $valine.appId }}',
+        appKey: '{{ $valine.appKey }}',
+        notify: '{{ $valine.notify }}',
+        verify: '{{ $valine.verify }}',
+        avatar: '{{ $valine.avatar }}',
+        placeholder: '{{ $valine.placeholder }}',
+        visitor: '{{ $valine.visitor }}'
+    });
+</script>
+<noscript>
+    Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+</noscript>
+{{- end -}}
