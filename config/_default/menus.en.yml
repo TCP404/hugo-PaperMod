@@ -1,0 +1,20 @@
+main:
+  - name: Archive
+    url: archives
+    weight: 5
+  - identifier: categories
+    name: categories
+    url: /categories/
+    weight: 10
+  - identifier: tags
+    name: tags
+    url: /tags/
+    weight: 20
+  - name: me
+    url: me
+    weight: 30
+  - identifier: search
+    pre: <i class="fa-solid fa-magnifying-glass"></i>
+    name: 🔍
+    url: search/
+    weight: 40

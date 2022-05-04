@@ -1,0 +1,5 @@
+<!-- red, yellow, green, cyan, blue, gray -->
+{{- $color   := .Get 0 | default "" -}}
+{{- $content := .Get 1 | default "" -}}
+<!-- <span class="span {{ $color -}}">{{- $content | markdownify -}}</span> -->
+<span style="color:{{ $color -}}">{{- $content | markdownify -}}</span>

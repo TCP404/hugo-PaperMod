@@ -1,0 +1,10 @@
+{{ $date := (.Get "date") | default "" }}
+<div class="container">
+    <div class="meta">
+        <span class="date">{{$date}}</span>
+        <span class="title">{{ .Get "title" | markdownify }}</span>
+    </div>
+    <div class="content">
+        <div class="body">{{.Inner}}</div>
+    </div>
+</div>

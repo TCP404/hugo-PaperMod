@@ -1,0 +1,4 @@
+{{$url := (.Get "url")}}
+{{$filename := (.Get "name") }}
+{{$txt := (.Get "txt") | default "Download" }}
+<a href="{{- $url -}}" download="{{- $filename -}}">{{- $txt -}}</a>
